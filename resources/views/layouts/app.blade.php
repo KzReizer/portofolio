@@ -945,6 +945,412 @@
                     width: 100%;
                 }
             }
+               /* -------------------------------------------------------------
+                VARIABEL & RESET (ditingkatkan)
+            ------------------------------------------------------------- */
+            :root {
+                --page: #fef8ed;
+                --page-cool: #eef4f2;
+                --surface: #ffffff;
+                --surface-strong: #fbfcfa;
+                --ink: #15191d;
+                --muted: #5f6c74;
+                --line: #e2dfd7;
+                --deep: #101820;
+                --deep-soft: #1b2a32;
+                --green: #1f8a70;
+                --green-dark: #0f5e4c;
+                --green-soft: #e0f0ea;
+                --amber: #e28c2e;
+                --amber-soft: #fef0e2;
+                --blue: #3a6b8c;
+                --rose: #c65d5a;
+                --shadow-sm: 0 12px 28px rgba(0, 0, 0, 0.05);
+                --shadow-md: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+                --shadow-hover: 0 30px 45px -12px rgba(0, 0, 0, 0.15);
+                --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background: var(--page);
+                color: var(--ink);
+                font-family: 'Figtree', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                line-height: 1.5;
+            }
+
+            /* Animasi global */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .section, .hero, .card, .portrait-frame {
+                animation: fadeInUp 0.7s ease-out forwards;
+            }
+
+            /* Wrapper utama */
+            .site-shell {
+                min-height: 100vh;
+                background: radial-gradient(circle at 10% 20%, rgba(31, 138, 112, 0.02), transparent 70%),
+                            linear-gradient(145deg, var(--page) 0%, #fef5ea 100%);
+            }
+
+            /* HEADER lebih modern */
+            .site-header {
+                position: sticky;
+                top: 0;
+                z-index: 50;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                background: rgba(254, 248, 237, 0.85);
+                backdrop-filter: blur(20px);
+                transition: background 0.2s;
+            }
+
+            .nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+                width: min(1200px, calc(100% - 48px));
+                margin: 0 auto;
+                padding: 20px 0;
+            }
+
+            .brand {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                font-weight: 800;
+                font-size: 1.2rem;
+                transition: var(--transition);
+            }
+
+            .brand-mark {
+                width: 40px;
+                height: 40px;
+                background: linear-gradient(135deg, var(--green), var(--green-dark));
+                border-radius: 14px;
+                display: grid;
+                place-items: center;
+                color: white;
+                font-size: 1rem;
+                box-shadow: var(--shadow-sm);
+                transition: transform 0.2s;
+            }
+
+            .brand:hover .brand-mark {
+                transform: scale(1.05) rotate(2deg);
+            }
+
+            .nav-links a {
+                padding: 10px 18px;
+                border-radius: 40px;
+                font-weight: 600;
+                transition: var(--transition);
+                color: var(--muted);
+                letter-spacing: -0.2px;
+            }
+
+            .nav-links a:hover {
+                background: var(--green-soft);
+                color: var(--green-dark);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 12px rgba(31, 138, 112, 0.1);
+            }
+
+            /* HERO */
+            .hero {
+                display: grid;
+                grid-template-columns: 1fr 0.8fr;
+                gap: 56px;
+                align-items: center;
+                min-height: calc(100vh - 85px);
+                padding: 60px 0 70px;
+            }
+
+            .eyebrow {
+                margin-bottom: 20px;
+                color: var(--green);
+                font-size: 13px;
+                font-weight: 800;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                background: var(--green-soft);
+                display: inline-block;
+                padding: 5px 14px;
+                border-radius: 60px;
+            }
+
+            .hero h1 {
+                font-size: 64px;
+                line-height: 1.05;
+                background: linear-gradient(145deg, var(--ink), var(--green-dark));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                margin-bottom: 16px;
+            }
+
+            .lead {
+                font-size: 1.2rem;
+                color: var(--muted);
+                line-height: 1.6;
+                max-width: 90%;
+            }
+
+            .hero-meta .pill {
+                background: rgba(255,255,255,0.9);
+                backdrop-filter: blur(4px);
+                border: 1px solid var(--line);
+                border-radius: 60px;
+                padding: 8px 20px;
+                font-weight: 600;
+                transition: var(--transition);
+            }
+
+            .hero-meta .pill:hover {
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-sm);
+                border-color: var(--green);
+            }
+
+            /* BUTTONS */
+            .button {
+                border-radius: 60px;
+                padding: 12px 28px;
+                font-weight: 700;
+                transition: var(--transition);
+                box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            }
+
+            .button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 20px -8px rgba(31, 138, 112, 0.4);
+            }
+
+            .button-primary {
+                background: var(--green);
+                border: none;
+            }
+
+            .button-secondary {
+                background: white;
+                border: 1px solid var(--line);
+                color: var(--ink);
+            }
+
+            .button-secondary:hover {
+                background: var(--green-soft);
+                border-color: var(--green);
+            }
+
+            /* PORTRAIT dengan efek glassmorphism */
+            .portrait-frame {
+                justify-self: end;
+                width: min(100%, 320px);
+            }
+
+            .portrait {
+                border-radius: 36px;
+                background: rgba(255,255,255,0.5);
+                backdrop-filter: blur(2px);
+                box-shadow: var(--shadow-md);
+                transition: var(--transition);
+                border: 1px solid rgba(255,255,255,0.6);
+            }
+
+            .portrait:hover {
+                transform: scale(1.02);
+                box-shadow: var(--shadow-hover);
+            }
+
+            /* SECTION umum */
+            .section {
+                padding: 90px 0;
+                border-top: 1px solid var(--line);
+                position: relative;
+            }
+
+            .section-header {
+                display: grid;
+                grid-template-columns: 260px 1fr;
+                gap: 48px;
+                margin-bottom: 48px;
+            }
+
+            .section-kicker {
+                font-size: 14px;
+                font-weight: 800;
+                color: var(--amber);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                background: var(--amber-soft);
+                display: inline-block;
+                padding: 5px 14px;
+                border-radius: 60px;
+            }
+
+            .section-title {
+                font-size: 40px;
+                font-weight: 800;
+                line-height: 1.2;
+                background: linear-gradient(120deg, var(--ink), var(--deep-soft));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            /* Kartu Skill */
+            .skill-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 28px;
+            }
+
+            .card {
+                border-radius: 28px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                transition: var(--transition);
+                box-shadow: var(--shadow-sm);
+                overflow: hidden;
+            }
+
+            .card:hover {
+                transform: translateY(-8px);
+                box-shadow: var(--shadow-hover);
+                border-color: rgba(31,138,112,0.3);
+            }
+
+            .skill-card {
+                padding: 28px;
+            }
+
+            .skill-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 6px;
+            }
+
+            .meter {
+                margin-top: 20px;
+                background: #e9e2d4;
+                border-radius: 60px;
+                height: 8px;
+                overflow: hidden;
+            }
+
+            .meter span {
+                display: block;
+                height: 100%;
+                background: linear-gradient(90deg, var(--green), var(--amber));
+                border-radius: 60px;
+                transition: width 0.6s ease;
+            }
+
+            /* Timeline & project cards */
+            .timeline-card, .project-card {
+                padding: 28px;
+            }
+
+            .period {
+                color: var(--green-dark);
+                font-weight: 800;
+                font-size: 0.85rem;
+                letter-spacing: 0.5px;
+                margin-bottom: 14px;
+            }
+
+            .project-image {
+                border-radius: 20px;
+                overflow: hidden;
+                transition: transform 0.4s;
+            }
+
+            .project-card:hover .project-image {
+                transform: scale(0.98);
+            }
+
+            .tech {
+                color: var(--amber);
+                font-weight: 700;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+            }
+
+            /* Empty state */
+            .empty-state {
+                grid-column: 1 / -1;
+                background: rgba(255,255,240,0.7);
+                backdrop-filter: blur(4px);
+                border-radius: 48px;
+                text-align: center;
+                padding: 48px;
+                color: var(--muted);
+                font-weight: 500;
+            }
+
+            /* Footer */
+            .footer {
+                border-top: 1px solid var(--line);
+                padding: 40px 0;
+                text-align: center;
+                background: rgba(254,245,230,0.5);
+            }
+
+            /* RESPONSIVE - lebih halus */
+            @media (max-width: 1024px) {
+                .hero { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+                .hero h1 { font-size: 52px; }
+                .lead { max-width: 100%; }
+                .portrait-frame { justify-self: center; }
+                .section-header { grid-template-columns: 1fr; gap: 16px; }
+                .section-title { font-size: 32px; }
+            }
+
+            @media (max-width: 700px) {
+                .nav { flex-direction: column; gap: 16px; }
+                .nav-links { justify-content: center; }
+                .hero h1 { font-size: 42px; }
+                .skill-grid, .timeline-grid, .project-grid { grid-template-columns: 1fr; }
+                .section { padding: 60px 0; }
+                .button { width: 100%; justify-content: center; }
+            }
+
+            /* Efek tambahan : scroll reveal native + interaksi */
+            .card, .hero, .section-header, .portrait-frame {
+                will-change: transform, opacity;
+            }
+
+            a, button {
+                cursor: pointer;
+            }
+
+            /* Smooth shadow untuk semua kartu */
+            .timeline-card, .skill-card, .project-card {
+                transition: var(--transition);
+            }
+
+            /* background animasi subtle pada hero */
+            .hero {
+                background: radial-gradient(ellipse at 80% 20%, rgba(31,138,112,0.03), transparent);
+            }
         </style>
 
         @stack('styles')
