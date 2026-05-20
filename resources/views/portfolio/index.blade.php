@@ -67,7 +67,7 @@
                                 <a class="button button-secondary" href="{{ route('profile.edit') }}">Akun Saya</a>
                             @endif
                         @else
-                            <a class="button button-secondary" href="{{ route('login') }}">Login Admin</a>
+                            
                         @endauth
                     </div>
                 </div>
