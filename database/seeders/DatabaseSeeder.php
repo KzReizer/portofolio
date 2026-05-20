@@ -10,6 +10,7 @@ use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,11 +21,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::firstOrCreate(
+        User::updateOrCreate(
+            ['email' => 'admin@portfolio.test'],
+            [
+                'name' => 'Admin Portfolio',
+                'password' => Hash::make('password'),
+                'role' => 'admin',
+            ],
+        );
+
+        User::updateOrCreate(
             ['email' => 'test@example.com'],
             [
                 'name' => 'Test User',
-                'password' => bcrypt('password'),
+                'password' => Hash::make('password'),
+                'role' => 'user',
             ],
         );
 

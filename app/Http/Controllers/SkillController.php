@@ -11,21 +11,21 @@ class SkillController extends Controller
     {
         Skill::create($this->validated($request));
 
-        return redirect(route('dashboard.index').'#skills')->with('success', 'Skill berhasil ditambahkan.');
+        return redirect(route('dashboard').'#skills')->with('success', 'Skill berhasil ditambahkan.');
     }
 
     public function update(Request $request, Skill $skill)
     {
         $skill->update($this->validated($request));
 
-        return redirect(route('dashboard.index').'#skills')->with('success', 'Skill berhasil diperbarui.');
+        return redirect(route('dashboard').'#skills')->with('success', 'Skill berhasil diperbarui.');
     }
 
     public function destroy(Skill $skill)
     {
         $skill->delete();
 
-        return redirect(route('dashboard.index').'#skills')->with('success', 'Skill berhasil dihapus.');
+        return redirect(route('dashboard').'#skills')->with('success', 'Skill berhasil dihapus.');
     }
 
     private function validated(Request $request): array

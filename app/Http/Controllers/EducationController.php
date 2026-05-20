@@ -11,21 +11,21 @@ class EducationController extends Controller
     {
         Education::create($this->validated($request));
 
-        return redirect(route('dashboard.index').'#education')->with('success', 'Pendidikan berhasil ditambahkan.');
+        return redirect(route('dashboard').'#education')->with('success', 'Pendidikan berhasil ditambahkan.');
     }
 
     public function update(Request $request, Education $education)
     {
         $education->update($this->validated($request));
 
-        return redirect(route('dashboard.index').'#education')->with('success', 'Pendidikan berhasil diperbarui.');
+        return redirect(route('dashboard').'#education')->with('success', 'Pendidikan berhasil diperbarui.');
     }
 
     public function destroy(Education $education)
     {
         $education->delete();
 
-        return redirect(route('dashboard.index').'#education')->with('success', 'Pendidikan berhasil dihapus.');
+        return redirect(route('dashboard').'#education')->with('success', 'Pendidikan berhasil dihapus.');
     }
 
     private function validated(Request $request): array

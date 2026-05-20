@@ -11,21 +11,21 @@ class ExperienceController extends Controller
     {
         Experience::create($this->validated($request));
 
-        return redirect(route('dashboard.index').'#experiences')->with('success', 'Pengalaman berhasil ditambahkan.');
+        return redirect(route('dashboard').'#experiences')->with('success', 'Pengalaman berhasil ditambahkan.');
     }
 
     public function update(Request $request, Experience $experience)
     {
         $experience->update($this->validated($request));
 
-        return redirect(route('dashboard.index').'#experiences')->with('success', 'Pengalaman berhasil diperbarui.');
+        return redirect(route('dashboard').'#experiences')->with('success', 'Pengalaman berhasil diperbarui.');
     }
 
     public function destroy(Experience $experience)
     {
         $experience->delete();
 
-        return redirect(route('dashboard.index').'#experiences')->with('success', 'Pengalaman berhasil dihapus.');
+        return redirect(route('dashboard').'#experiences')->with('success', 'Pengalaman berhasil dihapus.');
     }
 
     private function validated(Request $request): array

@@ -26,7 +26,15 @@
                     <a href="#experience">Pengalaman</a>
                     <a href="#education">Pendidikan</a>
                     <a href="#projects">Project</a>
-                    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+                    @auth
+                        @if (auth()->user()->isAdmin())
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                        @else
+                            <a href="{{ route('profile.edit') }}">Akun</a>
+                        @endif
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+                    @endauth
                 </div>
             </nav>
         </header>
@@ -52,7 +60,15 @@
 
                     <div class="hero-actions">
                         <a class="button" href="#projects">Lihat Project</a>
-                        <a class="button button-secondary" href="{{ route('dashboard.index') }}">Edit Portfolio</a>
+                        @auth
+                            @if (auth()->user()->isAdmin())
+                                <a class="button button-secondary" href="{{ route('dashboard') }}">Edit Portfolio</a>
+                            @else
+                                <a class="button button-secondary" href="{{ route('profile.edit') }}">Akun Saya</a>
+                            @endif
+                        @else
+                            <a class="button button-secondary" href="{{ route('login') }}">Login Admin</a>
+                        @endauth
                     </div>
                 </div>
 

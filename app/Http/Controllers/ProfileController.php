@@ -2,64 +2,59 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PortfolioProfile;
+use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    public function update(Request $request)
+    /**
+     * Display the user's profile form.
+     */
+    public function edit(Request $request): View
     {
-        $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'headline' => ['nullable', 'string', 'max:255'],
-            'address' => ['nullable', 'string', 'max:255'],
-            'about' => ['nullable', 'string'],
-            'email' => ['nullable', 'email', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:50'],
-            'photo_url' => ['nullable', 'url', 'max:2048'],
-            'photo' => ['nullable', 'image', 'max:2048'],
-            'remove_photo' => ['nullable', 'boolean'],
+        return view('profile.edit', [
+            'user' => $request->user(),
         ]);
-
-        $profile = PortfolioProfile::firstOrCreate([], ['name' => $validated['name']]);
-
-        $data = [
-            'name' => $validated['name'],
-            'headline' => $validated['headline'] ?? null,
-            'address' => $validated['address'] ?? null,
-            'about' => $validated['about'] ?? null,
-            'email' => $validated['email'] ?? null,
-            'phone' => $validated['phone'] ?? null,
-        ];
-
-        if ($request->boolean('remove_photo')) {
-            $this->deleteLocalFile($profile->photo_path);
-            $data['photo_path'] = null;
-        }
-
-        if ($request->filled('photo_url')) {
-            $this->deleteLocalFile($profile->photo_path);
-            $data['photo_path'] = $validated['photo_url'];
-        }
-
-        if ($request->hasFile('photo')) {
-            $this->deleteLocalFile($profile->photo_path);
-            $data['photo_path'] = $request->file('photo')->store('profile', 'public');
-        }
-
-        $profile->update($data);
-
-        return redirect(route('dashboard.index').'#profile')->with('success', 'Profil berhasil diperbarui.');
     }
 
-    private function deleteLocalFile(?string $path): void
+    /**
+     * Update the user's profile information.
+     */
+    public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        if (! $path || Str::startsWith($path, ['http://', 'https://'])) {
-            return;
+        $request->user()->fill($request->validated());
+
+        if ($request->user()->isDirty('email')) {
+            $request->user()->email_verified_at = null;
         }
 
-        Storage::disk('public')->delete($path);
+        $request->user()->save();
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
+    /**
+     * Delete the user's account.
+     */
+    public function destroy(Request $request): RedirectResponse
+    {
+        $request->validateWithBag('userDeletion', [
+            'password' => ['required', 'current_password'],
+        ]);
+
+        $user = $request->user();
+
+        Auth::logout();
+
+        $user->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Redirect::to('/');
     }
 }

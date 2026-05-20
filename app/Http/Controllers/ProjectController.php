@@ -25,7 +25,7 @@ class ProjectController extends Controller
 
         Project::create($data);
 
-        return redirect(route('dashboard.index').'#projects')->with('success', 'Project berhasil ditambahkan.');
+        return redirect(route('dashboard').'#projects')->with('success', 'Project berhasil ditambahkan.');
     }
 
     public function update(Request $request, Project $project)
@@ -45,7 +45,7 @@ class ProjectController extends Controller
 
         $project->update($data);
 
-        return redirect(route('dashboard.index').'#projects')->with('success', 'Project berhasil diperbarui.');
+        return redirect(route('dashboard').'#projects')->with('success', 'Project berhasil diperbarui.');
     }
 
     public function destroy(Project $project)
@@ -53,7 +53,7 @@ class ProjectController extends Controller
         $this->deleteLocalFile($project->image_path);
         $project->delete();
 
-        return redirect(route('dashboard.index').'#projects')->with('success', 'Project berhasil dihapus.');
+        return redirect(route('dashboard').'#projects')->with('success', 'Project berhasil dihapus.');
     }
 
     private function validated(Request $request): array

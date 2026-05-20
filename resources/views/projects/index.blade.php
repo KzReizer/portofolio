@@ -17,7 +17,15 @@
 
                 <div class="nav-links">
                     <a href="{{ route('portfolio.index') }}">Home</a>
-                    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+                    @auth
+                        @if (auth()->user()->isAdmin())
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                        @else
+                            <a href="{{ route('profile.edit') }}">Akun</a>
+                        @endif
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+                    @endauth
                 </div>
             </nav>
         </header>
