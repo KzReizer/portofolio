@@ -561,7 +561,11 @@
         }
 
         .skill-card {
-            padding: 32px;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
         }
 
         .skill-card h3 {
