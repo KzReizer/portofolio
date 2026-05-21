@@ -19,7 +19,7 @@ class PortfolioProfileController extends Controller
             'email' => ['nullable', 'email', 'max:255'],
             'phone' => ['nullable', 'string', 'max:50'],
             'photo_url' => ['nullable', 'url', 'max:2048'],
-            'photo' => ['nullable', 'image', 'max:2048'],
+            'photo' => ['nullable', 'image', 'max:10000'],
             'remove_photo' => ['nullable', 'boolean'],
         ]);
 

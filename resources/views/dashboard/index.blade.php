@@ -23,11 +23,41 @@
             </div>
 
             <nav class="dashboard-nav">
-                <a href="#profile">Profil <span>01</span></a>
-                <a href="#skills">Skill <span>02</span></a>
-                <a href="#experiences">Pengalaman <span>03</span></a>
-                <a href="#education">Pendidikan <span>04</span></a>
-                <a href="#projects">Project <span>05</span></a>
+                <a href="#profile">
+                    <span style="display: inline-flex; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Profil
+                    </span>
+                    <span>01</span>
+                </a>
+                <a href="#skills">
+                    <span style="display: inline-flex; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"/><path d="M12 2a6 6 0 0 0-6 6v3.5c0 1.63 1.22 3.03 2.83 3.32a3 3 0 0 0 6.34 0c1.61-.29 2.83-1.69 2.83-3.32V8a6 6 0 0 0-6-6Z"/></svg>
+                        Skill
+                    </span>
+                    <span>02</span>
+                </a>
+                <a href="#experiences">
+                    <span style="display: inline-flex; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+                        Pengalaman
+                    </span>
+                    <span>03</span>
+                </a>
+                <a href="#education">
+                    <span style="display: inline-flex; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M6 18.8v-4L2 13"/><path d="M21.4 12v6c0 .5-.4 1-1 1H12"/></svg>
+                        Pendidikan
+                    </span>
+                    <span>04</span>
+                </a>
+                <a href="#projects">
+                    <span style="display: inline-flex; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                        Project
+                    </span>
+                    <span>05</span>
+                </a>
             </nav>
 
             <div class="sidebar-footer">
