@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PortfolioProfile extends Model
@@ -27,6 +28,6 @@ class PortfolioProfile extends Model
             return $this->photo_path;
         }
 
-        return asset('storage/'.$this->photo_path);
+        return Storage::disk('public')->url($this->photo_path);
     }
 }
