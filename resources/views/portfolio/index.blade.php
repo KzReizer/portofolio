@@ -98,7 +98,7 @@
                         <p class="section-kicker">Tentang Saya</p>
                         <div>
                             <h2 class="section-title">Profil singkat</h2>
-                            <p class="section-copy">{{ $profile->about ?: 'Ceritakan tentang diri kamu, fokus kerja, gaya belajar, dan jenis project yang paling kamu suka lewat dashboard.' }}</p>
+                            <p class="section-copy"></p></p>
                         </div>
                     </div>
 
