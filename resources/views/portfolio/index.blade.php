@@ -148,8 +148,8 @@
                     <div class="section-header">
                         <p class="section-kicker">Skill</p>
                         <div>
-                            <h2 class="section-title">Kemampuan utama</h2>
-                            <p class="section-copy">Kumpulan skill yang paling sering kamu gunakan dalam pekerjaan dan project.</p>
+                            <h2 class="section-title">Keahlian</h2>
+                            <p class="section-copy"></p>
                         </div>
                     </div>
 
@@ -174,8 +174,8 @@
                     <div class="section-header">
                         <p class="section-kicker">Pengalaman</p>
                         <div>
-                            <h2 class="section-title">Riwayat pengalaman</h2>
-                            <p class="section-copy">Pengalaman kerja, organisasi, freelance, magang, atau project kolaborasi.</p>
+                            <h2 class="section-title">Riwayat pengalaman Kerja
+                            <p class="section-copy"></p>
                         </div>
                     </div>
 
@@ -200,7 +200,7 @@
                         <p class="section-kicker">Pendidikan</p>
                         <div>
                             <h2 class="section-title">Latar pendidikan</h2>
-                            <p class="section-copy">Sekolah, kampus, kursus, bootcamp, atau sertifikasi yang relevan.</p>
+                            <p class="section-copy"></p>
                         </div>
                     </div>
 
@@ -224,8 +224,8 @@
                     <div class="section-header">
                         <p class="section-kicker">Project Saya</p>
                         <div>
-                            <h2 class="section-title">Karya pilihan</h2>
-                            <p class="section-copy">Project yang bisa ditampilkan sebagai bukti kemampuan dan proses belajar.</p>
+                            <h2 class="section-title">Karya</h2>
+                            <p class="section-copy"></p>
                         </div>
                     </div>
 

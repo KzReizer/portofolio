@@ -607,6 +607,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 32px;
+           
+
         }
 
         .timeline-card,
@@ -615,6 +617,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            width: 100%;
+            
         }
 
         .period {
